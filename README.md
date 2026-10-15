@@ -5,3 +5,9 @@
 My website would be completing a protoype project I did months ago. It is a all in one transit app where you can track all the ways to travel to one place without switching apps every second. You can buy an uber or lyft from it too. 
 ## AI USE: 
 The policy is that we are allowed during development between check ins and declare any use of AI tool. 
+
+Assignment 1 AI USE: None
+
+Assignment 2 AI USE: Used it to check my code with a couple errors and fixed them plus formatted.
+
+Assignment 3 AI USE: Used it to help me format the image 
