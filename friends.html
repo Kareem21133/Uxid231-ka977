@@ -1,79 +1,58 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transit App | Friends</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transit App | Friends</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-    }
+  <body>
+    <header>
+      <p>Transit App</p>
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="friends.html" class="current">Friends</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </header>
 
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
-</head>
+    <main>
+      <h1>Friends</h1>
 
-<body>
+      <section>
+        <h2>Your Friends</h2>
+        <table class="friends-table">
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Noah</td>
+            <td class="friend-status">On Subway</td>
+          </tr>
+          <tr>
+            <td>Kareem</td>
+            <td class="friend-status">In Uber</td>
+          </tr>
+          <tr>
+            <td>Ishan</td>
+            <td class="friend-status">At Bar</td>
+          </tr>
+        </table>
+      </section>
 
-  <header>
-    <p>Transit App</p>
+      <section>
+        <h2>Add Friends</h2>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="events.html">Events</a>
-      <a href="friends.html">Friends</a>
-      <a href="settings.html">Settings</a>
-    </nav>
-  </header>
+        <p>Find and add friends to make plans and travel together.</p>
+      </section>
+    </main>
 
-  <main>
-    <h1>Friends</h1>
-
-    <section>
-      <h2>Your Friends</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td>Noah</td>
-          <td>On Subway</td>
-        </tr>
-        <tr>
-          <td>Kareem</td>
-          <td>In Uber</td>
-        </tr>
-        <tr>
-          <td>Ishan</td>
-          <td>At Bar</td>
-        </tr>
-      </table>
-
-    </section>
-
-    <section>
-      <h2>Add Friends</h2>
-
-      <p>Find and add friends to make plans and travel together.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Transit App</p>
-  </footer>
-
-</body>
-
+    <footer>
+      <p>Transit App</p>
+    </footer>
+  </body>
 </html>

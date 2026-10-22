@@ -1,70 +1,65 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transit App | Events</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transit App | Events</title>
-  <style>
-    .event-img {
-      display: block;
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 8px;
-    }
-  </style>
-</head>
+  <body>
+    <header>
+      <p>Transit App</p>
 
-<body>
-
-  <header>
-    <p>Transit App</p>
-
-    <nav>
+      <nav>
         <a href="index.html">Home</a>
-      <a href="events.html">Events</a>
-      <a href="friends.html">Friends</a>
-      <a href="settings.html">Settings</a>
-    </nav>
-  </header>
+        <a href="events.html" class="current">Events</a>
+        <a href="friends.html">Friends</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </header>
 
-  <main>
+    <main>
+      <h1>Events Near You</h1>
 
-    <h1>Events Near You</h1>
+      <section>
+        <article class="event-card">
+          <h2>Happy Hour Meetup</h2>
+          <p>Today, 5:30 PM.</p>
+          <p>Good Good Things</p>
+          <img
+            class="event-img"
+            src="images/good-good-things.png"
+            alt="Interior of a bar with candlelit tables and framed portraits"
+          />
+        </article>
 
-    <section>
+        <article class="event-card">
+          <h2>Concert</h2>
+          <p>Tomorrow, 8:00 PM.</p>
+          <p>Xfinity Arena</p>
+          <img
+            class="event-img"
+            src="images/xfinity-arena.png"
+            alt="Xfinity Mobile Arena exterior lit up in purple lights"
+          />
+        </article>
 
-      <article>
-        <h2>Happy Hour Meetup</h2>
-        <p>Today, 5:30 PM.</p>
-        <p>Good Good Things</p>
-        <img class="event-img" src="images/good-good-things.png" alt="Interior of a bar with candlelit tables and framed portraits">
-      </article>
+        <article class="event-card">
+          <h2>Coffee Study Group</h2>
+          <p>Tomorrow, 4:00 PM.</p>
+          <p>Madis</p>
+          <img
+            class="event-img"
+            src="images/madis.png"
+            alt="Madis coffee shop sign"
+          />
+        </article>
+      </section>
+    </main>
 
-      <article>
-        <h2>Concert</h2>
-        <p>Tomorrow, 8:00 PM.</p>
-        <p>Xfinity Arena</p>
-        <img class="event-img" src="images/xfinity-arena.png" alt="Xfinity Mobile Arena exterior lit up in purple lights">
-      </article>
-
-         <article>
-        <h2>Coffee Study Group</h2>
-        <p>Tomorrow, 4:00 PM.</p>
-        <p>Madis</p>
-        <img class="event-img" src="images/madis.png" alt="Madis coffee shop sign">
-      </article>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Transit App</p>
-  </footer>
-
-</body>
-
+    <footer>
+      <p>Transit App</p>
+    </footer>
+  </body>
 </html>

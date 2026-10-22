@@ -1,0 +1,114 @@
+/* 1. Type selectors — page-wide defaults */
+body {
+  /* base text for the whole site */
+}
+
+h1,
+h2 {
+  /* shared heading style */
+}
+
+a {
+  /* default link style */
+}
+
+label {
+  /* form labels across the site */
+}
+
+input {
+  /* text inputs across the site */
+}
+
+/* 2. Combinators on type selectors — elements in a region */
+header p {
+  /* app name at the top of every page */
+}
+
+nav a {
+  /* nav links look different from regular links */
+}
+
+footer p {
+  /* small, muted footer text */
+}
+
+/* 3. Class selectors — reusable components */
+.feature-card {
+  /* each feature box on the home page */
+}
+
+.settings-section {
+  /* each settings group (Account, Payment, Memberships) */
+}
+
+.event-card {
+  /* card for each event on the events page */
+}
+
+.event-img {
+  /* event photo inside an event card  */
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.friends-table {
+  /* friends list table */
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.friend-status {
+  /* "On Subway", "In Uber", etc. */
+}
+
+/* 4. Combinators involving classes */
+nav a.current {
+  /* marks the page you are on */
+}
+
+.event-card h2 {
+  /* event name */
+}
+
+.event-card p {
+  /* event time and location text */
+}
+
+.friends-table th,
+.friends-table td {
+  /* table cells  */
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.friends-table th {
+  /* header row  */
+  background-color: #f2f2f2;
+}
+
+/* 5. Id selectors — unique, one-off elements */
+#trip-planner {
+  /* the main "Plan a Trip" block on the home page*/
+}
+
+#destination {
+  /* the big destination search box */
+}
+
+/* 6. Interactive states */
+nav a:hover,
+.event-card:hover {
+  /* response to the mouse */
+}
+
+nav a:focus-visible,
+#destination:focus-visible {
+  /* focus indicator for keyboard users */
+}

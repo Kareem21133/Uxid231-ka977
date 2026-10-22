@@ -11,3 +11,5 @@ Assignment 1 AI USE: None
 Assignment 2 AI USE: Used it to check my code with a couple errors and fixed them plus formatted.
 
 Assignment 3 AI USE: Used it to help me format the image 
+
+Assignment 4 AI USE: None
