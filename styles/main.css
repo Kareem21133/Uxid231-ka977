@@ -1,53 +1,96 @@
+:root {
+  --color-text: #1a1a2e; /* main text | 17:1 on white */
+  --color-background: #ffffff; /* page background */
+  --color-small-text: #5d5d68; /* footer and small text | 7.3:1 on white */
+  --color-brand: #1d4ed8; /* app blue, 6.7:1 on white */
+  --color-brand-dark: #1e3a8a; /* darker blue for hover + focus, 10:1 */
+  --color-on-brand: #ffffff; /* text that shows which page ur on */
+  --color-surface: #f2f4f8; /* light gray for cards and table header */
+  --color-border: #d0d5dd; /* lines around cards and table */
+
+  --color-link: var(--color-brand);
+  --color-link-hover: var(--color-brand-dark);
+  --color-focus: var(--color-brand-dark);
+}
+
 /* 1. Type selectors — page-wide defaults */
 body {
-  /* base text for the whole site */
+  /* base text for whole site */
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 h1,
 h2 {
-  /* shared heading style */
+  /* headings */
+  color: var(--color-brand-dark);
 }
 
 a {
-  /* default link style */
+  /* normal links */
+  color: var(--color-link);
 }
 
 label {
-  /* form labels across the site */
+  /* form labels */
+  color: var(--color-text);
 }
 
 input {
-  /* text inputs across the site */
+  /* text boxes */
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-small-text);
+}
+
+button {
+  /* buttons (sign in, save, switch etc) */
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+  border: none;
 }
 
 /* 2. Combinators on type selectors — elements in a region */
 header p {
-  /* app name at the top of every page */
+  /* app name at top */
+  color: var(--color-brand);
 }
 
 nav a {
-  /* nav links look different from regular links */
+  /* nav links */
+  color: var(--color-link);
+}
+
+nav a:hover,
+.event-card:hover {
+  /* when you mouse over */
+  background-color: var(--color-surface);
 }
 
 footer p {
-  /* small, muted footer text */
+  /* footer text, smaller + grayer */
+  color: var(--color-small-text);
 }
 
 /* 3. Class selectors — reusable components */
 .feature-card {
-  /* each feature box on the home page */
+  /* feature boxes on home */
+  background-color: var(--color-surface);
 }
 
 .settings-section {
-  /* each settings group (Account, Payment, Memberships) */
+  /* account / payment / memberships boxes */
+  background-color: var(--color-surface);
 }
 
 .event-card {
-  /* card for each event on the events page */
+  /* each event */
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
 }
 
 .event-img {
-  /* event photo inside an event card  */
+  /* event pic */
   display: block;
   width: 100%;
   max-width: 400px;
@@ -57,58 +100,96 @@ footer p {
 }
 
 .friends-table {
-  /* friends list table */
+  /* friends table */
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
 }
 
 .friend-status {
-  /* "On Subway", "In Uber", etc. */
+  /* on subway, in uber etc */
+  color: var(--color-small-text);
+}
+
+.auth-form {
+  /* sign in / sign up form, styling later */
+}
+
+.ride-option {
+  /* subway, bus, uber, walk */
+  border: 1px solid var(--color-border);
+}
+
+.trip-summary {
+  /* trip info box on review page */
+  background-color: var(--color-surface);
+}
+
+.venue-card {
+  /* each bar / venue */
+  border: 1px solid var(--color-border);
+}
+
+.plan-card {
+  /* each subscription plan */
+  border: 1px solid var(--color-border);
 }
 
 /* 4. Combinators involving classes */
 nav a.current {
-  /* marks the page you are on */
+  /* page youre on */
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
 }
 
 .event-card h2 {
-  /* event name */
+  /* event name, same as other h2s for now */
 }
 
 .event-card p {
-  /* event time and location text */
+  /* time + location */
+  color: var(--color-small-text);
 }
 
 .friends-table th,
 .friends-table td {
-  /* table cells  */
-  border: 1px solid #ddd;
+  /* table cells */
+  border: 1px solid var(--color-border);
   padding: 8px;
   text-align: left;
 }
 
 .friends-table th {
-  /* header row  */
-  background-color: #f2f2f2;
+  /* header row */
+  background-color: var(--color-surface);
 }
 
 /* 5. Id selectors — unique, one-off elements */
 #trip-planner {
-  /* the main "Plan a Trip" block on the home page*/
+  /* plan a trip box on home */
+  background-color: var(--color-surface);
 }
 
 #destination {
-  /* the big destination search box */
+  /* big search box */
+  border: 2px solid var(--color-brand);
 }
 
 /* 6. Interactive states */
-nav a:hover,
-.event-card:hover {
-  /* response to the mouse */
+nav a:hover {
+  /* link gets darker on hover */
+  color: var(--color-link-hover);
+}
+
+button:hover {
+  /* button gets darker on hover */
+  background-color: var(--color-brand-dark);
 }
 
 nav a:focus-visible,
-#destination:focus-visible {
-  /* focus indicator for keyboard users */
+#destination:focus-visible,
+button:focus-visible {
+  /* ring when you tab with keyboard */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
