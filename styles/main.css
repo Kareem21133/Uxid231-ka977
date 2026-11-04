@@ -1,21 +1,67 @@
+/*AI USE: helped me to format this structure better so that everything is together
+and so its better for readability
+
+helped me also to add comments to each section so that I know what each section is for
+helped me to also help me switch from my youtube tutorial to what the requirments of the assignment was asking 
+*/
+
+/* ---------- Color tokens ---------- */
 :root {
+  /* light pages */
   --color-text: #1a1a2e; /* main text | 17:1 on white */
   --color-background: #ffffff; /* page background */
-  --color-small-text: #5d5d68; /* footer and small text | 7.3:1 on white */
-  --color-brand: #1d4ed8; /* app blue, 6.7:1 on white */
-  --color-brand-dark: #1e3a8a; /* darker blue for hover + focus, 10:1 */
-  --color-on-brand: #ffffff; /* text that shows which page ur on */
+  --color-muted-text: #5d5d68; /* footer and small text | 7.3:1 on white */
   --color-surface: #f2f4f8; /* light gray for cards and table header */
   --color-border: #d0d5dd; /* lines around cards and table */
 
+  /* brand blue */
+  --color-brand: #1d4ed8; /* 6.7:1 on white */
+  --color-brand-dark: #1e3a8a; /* darker blue for hover + focus | 10:1 */
+  --color-on-brand: #ffffff; /* text on top of brand blue */
+
+  /* links + focus */
   --color-link: var(--color-brand);
   --color-link-hover: var(--color-brand-dark);
   --color-focus: var(--color-brand-dark);
+
+  /* dark welcome page */
+  --color-navy: #0b1230; /* welcome page background */
+  --color-on-navy: #ffffff; /* main text on navy | 18:1 */
+  --color-on-navy-muted: #b8c0da; /* tagline on navy | 10:1 */
+  --color-navy-border: #3a4466; /* outline button + placeholder edge */
+
+  /* type: font stack (system fonts only, no downloads) */
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+
+  /* type: size scale (1.25 ratio, base 1rem = 16px) */
+  --font-size-sm: 0.8rem; /* 12.8px  footer, small labels */
+  --font-size-base: 1rem; /* 16px    body text, buttons */
+  --font-size-md: 1.25rem; /* 20px    app name, h3 */
+  --font-size-lg: 1.563rem; /* 25px    h2 */
+  --font-size-xl: 1.953rem; /* 31.25px page h1 */
+  --font-size-2xl: 2.441rem; /* 39px    welcome h1 */
+
+  /* type: weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+
+  /* type: line-height + measure */
+  --line-height-tight: 1.1; /* big headings */
+  --line-height-body: 1.6; /* paragraphs */
+  --measure: 65ch; /* readable line length */
 }
 
-/* 1. Type selectors — page-wide defaults */
+/* ---------- Base elements (whole site) ---------- */
 body {
   /* base text for whole site */
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
   color: var(--color-text);
   background-color: var(--color-background);
 }
@@ -23,7 +69,21 @@ body {
 h1,
 h2 {
   /* headings */
+  line-height: var(--line-height-tight);
   color: var(--color-brand-dark);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  /* readable line length on all paragraphs */
+  max-width: var(--measure);
 }
 
 a {
@@ -31,26 +91,7 @@ a {
   color: var(--color-link);
 }
 
-label {
-  /* form labels */
-  color: var(--color-text);
-}
-
-input {
-  /* text boxes */
-  color: var(--color-text);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-small-text);
-}
-
-button {
-  /* buttons (sign in, save, switch etc) */
-  color: var(--color-on-brand);
-  background-color: var(--color-brand);
-  border: none;
-}
-
-/* 2. Combinators on type selectors — elements in a region */
+/* ---------- Site layout: header, nav, footer ---------- */
 header p {
   /* app name at top */
   color: var(--color-brand);
@@ -61,32 +102,245 @@ nav a {
   color: var(--color-link);
 }
 
-nav a:hover,
-.event-card:hover {
-  /* when you mouse over */
+nav a:hover {
+  /* link gets darker + gray box on hover */
+  color: var(--color-link-hover);
   background-color: var(--color-surface);
+}
+
+nav a.current {
+  /* page youre on */
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+}
+
+nav a:focus-visible {
+  /* tab with keyboard */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 footer p {
   /* footer text, smaller + grayer */
-  color: var(--color-small-text);
+  color: var(--color-muted-text);
 }
 
-/* 3. Class selectors — reusable components */
+/* ---------- Buttons ---------- */
+button {
+  /* real buttons (save, switch etc) */
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+  border: none;
+}
+
+button:hover {
+  /* button gets darker on hover */
+  background-color: var(--color-brand-dark);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.btn {
+  /* shape every link-button shares */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  border-radius: 16px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  /* filled blue button */
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-dark);
+}
+
+/* ---------- Forms: sign in / sign up ---------- */
+label {
+  /* form labels */
+  color: var(--color-text);
+}
+
+input {
+  /* text boxes */
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-muted-text);
+}
+
+.auth-form {
+  /* sign in / sign up form, styling later */
+}
+
+/* ---------- Welcome page ---------- */
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 64px 28px 32px;
+  background-color: var(--color-navy);
+  color: var(--color-on-navy);
+}
+
+.welcome-page header {
+  /* logo + name side by side */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-page header p {
+  /* app name, white instead of blue */
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-heavy);
+  color: var(--color-on-navy);
+}
+
+.logo {
+  /* blue rounded square behind the logo */
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--color-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-placeholder {
+  height: 300px;
+  margin-top: 28px;
+  border: 2px dashed var(--color-navy-border);
+  border-radius: 24px;
+}
+
+.welcome-page main {
+  /* pushes text + buttons to the bottom */
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.welcome-page h1 {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.03em;
+  color: var(--color-on-navy);
+}
+
+.hero-subheading {
+  /* tagline under the h1 */
+  margin: 0 0 12px;
+  max-width: var(--measure);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--color-on-navy-muted);
+}
+
+.welcome-actions {
+  /* stacks the two buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.welcome-page .btn-secondary {
+  /* outline button, only on the dark page */
+  border: 1.5px solid var(--color-navy-border);
+  color: var(--color-on-navy);
+}
+
+.welcome-page .btn-secondary:hover {
+  background-color: var(--color-navy-border);
+}
+
+.welcome-page .btn:focus-visible {
+  /* dark blue outline would vanish on navy */
+  outline-color: var(--color-on-navy);
+}
+
+.welcome-page footer p {
+  margin: 24px 0 0;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  color: var(--color-on-navy-muted);
+}
+
+/* ---------- Home: trip planner + features ---------- */
+#trip-planner {
+  /* plan a trip box on home */
+  background-color: var(--color-surface);
+}
+
+#destination {
+  /* big search box */
+  border: 2px solid var(--color-brand);
+}
+
+#destination:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 .feature-card {
   /* feature boxes on home */
   background-color: var(--color-surface);
 }
 
-.settings-section {
-  /* account / payment / memberships boxes */
+/* ---------- Rides + trips ---------- */
+.ride-option {
+  /* subway, bus, uber, walk */
+  border: 1px solid var(--color-border);
+}
+
+.trip-summary {
+  /* trip info box on review page */
   background-color: var(--color-surface);
 }
 
+/* ---------- Events ---------- */
 .event-card {
   /* each event */
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
+}
+
+.event-card:hover {
+  /* gray box when you mouse over */
+  background-color: var(--color-surface);
+}
+
+.event-card h2 {
+  /* event name, same as other h2s for now */
+}
+
+.event-card p {
+  /* time + location */
+  color: var(--color-muted-text);
 }
 
 .event-img {
@@ -99,56 +353,18 @@ footer p {
   margin-top: 8px;
 }
 
-.friends-table {
-  /* friends table */
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-}
-
-.friend-status {
-  /* on subway, in uber etc */
-  color: var(--color-small-text);
-}
-
-.auth-form {
-  /* sign in / sign up form, styling later */
-}
-
-.ride-option {
-  /* subway, bus, uber, walk */
-  border: 1px solid var(--color-border);
-}
-
-.trip-summary {
-  /* trip info box on review page */
-  background-color: var(--color-surface);
-}
-
+/* ---------- Venues (bars near you) ---------- */
 .venue-card {
   /* each bar / venue */
   border: 1px solid var(--color-border);
 }
 
-.plan-card {
-  /* each subscription plan */
-  border: 1px solid var(--color-border);
-}
-
-/* 4. Combinators involving classes */
-nav a.current {
-  /* page youre on */
-  color: var(--color-on-brand);
-  background-color: var(--color-brand);
-}
-
-.event-card h2 {
-  /* event name, same as other h2s for now */
-}
-
-.event-card p {
-  /* time + location */
-  color: var(--color-small-text);
+/* ---------- Friends ---------- */
+.friends-table {
+  /* friends table */
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
 }
 
 .friends-table th,
@@ -164,32 +380,18 @@ nav a.current {
   background-color: var(--color-surface);
 }
 
-/* 5. Id selectors — unique, one-off elements */
-#trip-planner {
-  /* plan a trip box on home */
+.friend-status {
+  /* on subway, in uber etc */
+  color: var(--color-muted-text);
+}
+
+/* ---------- Settings + account ---------- */
+.settings-section {
+  /* account / payment / memberships boxes */
   background-color: var(--color-surface);
 }
 
-#destination {
-  /* big search box */
-  border: 2px solid var(--color-brand);
-}
-
-/* 6. Interactive states */
-nav a:hover {
-  /* link gets darker on hover */
-  color: var(--color-link-hover);
-}
-
-button:hover {
-  /* button gets darker on hover */
-  background-color: var(--color-brand-dark);
-}
-
-nav a:focus-visible,
-#destination:focus-visible,
-button:focus-visible {
-  /* ring when you tab with keyboard */
-  outline: 3px solid var(--color-focus);
-  outline-offset: 2px;
+.plan-card {
+  /* each subscription plan */
+  border: 1px solid var(--color-border);
 }

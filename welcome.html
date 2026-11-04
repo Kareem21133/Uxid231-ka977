@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
-  <body>
+  <body class="welcome-page">
     <header>
+      <div class="logo">
+        <img src="images/logo.png" alt="Transit App logo" />
+      </div>
       <p>Transit App</p>
       <!-- no nav since you're not signed in yet -->
     </header>
+    <div class="hero-placeholder">
+      <img src="images/hero.png" alt="Transit App hero image" />
+    </div>
 
     <main>
-      <h1>Welcome to Transit App</h1>
-      <!-- tagline about what the app does -->
-
-      <section>
-        <!-- sign in link -->
-        <!-- create account link -->
+      <h1>Move Around with Ease</h1>
+      <p class="hero-subheading">
+        Transit App helps you get around your city with ease. Find the best
+        routes, track your rides, and more.
+      </p>
+      <section class="welcome-actions">
+        <a href="sign-in.html" class="btn btn-secondary">Sign in</a>
+        <a href="sign-up.html" class="btn btn-primary">Create Account</a>
       </section>
     </main>
 
