@@ -1,11 +1,10 @@
-/*AI USE: helped me to format this structure better so that everything is together
-and so its better for readability
+/* ---------- Reset ---------- */
+::before,
+::after {
+  box-sizing: border-box;
+}
 
-helped me also to add comments to each section so that I know what each section is for
-helped me to also help me switch from my youtube tutorial to what the requirments of the assignment was asking 
-*/
-
-/* ---------- Color tokens ---------- */
+/* ---------- Tokens ---------- */
 :root {
   /* light pages */
   --color-text: #1a1a2e; /* main text | 17:1 on white */
@@ -52,6 +51,14 @@ helped me to also help me switch from my youtube tutorial to what the requirment
   --line-height-tight: 1.1; /* big headings */
   --line-height-body: 1.6; /* paragraphs */
   --measure: 65ch; /* readable line length */
+
+  /* spacing scale + main column */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
+  --content-width: 40rem; /* 640px main column */
 }
 
 /* ---------- Base elements (whole site) ---------- */
@@ -69,6 +76,7 @@ body {
 h1,
 h2 {
   /* headings */
+  margin: 0 0 var(--space-sm);
   line-height: var(--line-height-tight);
   color: var(--color-brand-dark);
 }
@@ -82,8 +90,9 @@ h2 {
 }
 
 p {
-  /* readable line length on all paragraphs */
+  /* readable line length + same space under every paragraph */
   max-width: var(--measure);
+  margin: 0 0 var(--space-sm);
 }
 
 a {
@@ -91,7 +100,21 @@ a {
   color: var(--color-link);
 }
 
-/* ---------- Site layout: header, nav, footer ---------- */
+/* ---------- Site layout: main column, header, nav, footer ---------- */
+main {
+  /* centered main column */
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+footer {
+  /* same centered column as main */
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: 0 var(--space-md) var(--space-lg);
+}
+
 header p {
   /* app name at top */
   color: var(--color-brand);
@@ -144,15 +167,19 @@ button:focus-visible {
 }
 
 .btn {
-  /* shape every link-button shares */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
+  /* shape every link-button shares; padding sets the height */
+  display: block;
+  padding: var(--space-sm) var(--space-md);
   border-radius: 16px;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
+  text-align: center;
   text-decoration: none;
+}
+
+.btn + .btn {
+  /* space between stacked buttons */
+  margin-top: var(--space-sm);
 }
 
 .btn:focus-visible {
@@ -183,69 +210,145 @@ input {
   border: 1px solid var(--color-muted-text);
 }
 
-.auth-form {
-  /* sign in / sign up form, styling later */
+.auth-page main {
+  /* narrower column for forms */
+  max-width: 28rem;
+}
+
+.back-link {
+  /* back arrow at top */
+  display: inline-block;
+  padding: var(--space-xs) 0;
+  margin: 0 0 var(--space-lg);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.auth-page h1 {
+  margin: 0 0 var(--space-xs);
+}
+
+.auth-intro {
+  /* line under the heading */
+  margin: 0 0 var(--space-lg);
+  color: var(--color-muted-text);
+}
+
+.auth-form label {
+  /* label above each input */
+  display: block;
+  margin: 0 0 var(--space-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.auth-form input {
+  /* full-width text box; muted border = 3:1+ contrast so it's visible */
+  display: block;
+  width: 100%;
+  padding: var(--space-sm);
+  margin: 0 0 var(--space-md);
+  border: 1.5px solid var(--color-muted-text);
+  border-radius: 14px;
+  font: inherit;
+}
+
+.auth-form input:focus-visible {
+  /* blue border + outline when typing */
+  border-color: var(--color-brand);
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.field-hint {
+  /* small helper text between a label and its input */
+  margin: 0 0 var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-text);
+}
+
+.forgot-link {
+  /* small link, right side, above the button */
+  display: block;
+  margin: 0 0 var(--space-md);
+  text-align: right;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.auth-form .btn {
+  /* real button needs these to match the link-buttons */
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.auth-switch {
+  /* "New to Transit App?" line */
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  color: var(--color-muted-text);
 }
 
 /* ---------- Welcome page ---------- */
 .welcome-page {
-  display: flex;
-  flex-direction: column;
+  /* navy screen with breathing room on every side */
   min-height: 100vh;
-  box-sizing: border-box;
-  padding: 64px 28px 32px;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
   background-color: var(--color-navy);
   color: var(--color-on-navy);
 }
 
 .welcome-page header {
-  /* logo + name side by side */
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  /* same column width as main, centered */
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.logo {
+  /* blue rounded square behind the logo */
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 9px; /* (40 - 22) / 2 centers the 22px image */
+  background-color: var(--color-brand);
+}
+
+.logo img {
+  display: block;
+  width: 22px;
+  height: 22px;
 }
 
 .welcome-page header p {
-  /* app name, white instead of blue */
-  margin: 0;
+  /* app name sits on the same line as the logo */
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 var(--space-xs);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-heavy);
   color: var(--color-on-navy);
 }
 
-.logo {
-  /* blue rounded square behind the logo */
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background-color: var(--color-brand);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo img {
-  width: 22px;
-  height: 22px;
-}
-
 .hero-placeholder {
+  /* space for an illustration later */
+  max-width: var(--content-width);
   height: 300px;
-  margin-top: 28px;
+  margin-top: var(--space-lg);
+  margin-inline: auto;
   border: 2px dashed var(--color-navy-border);
   border-radius: 24px;
 }
 
 .welcome-page main {
-  /* pushes text + buttons to the bottom */
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  /* body already has side padding, so only space on top */
+  padding: var(--space-xl) 0 0;
 }
 
 .welcome-page h1 {
-  margin: 0;
+  margin: 0 0 var(--space-sm);
   font-size: var(--font-size-2xl);
   line-height: var(--line-height-tight);
   letter-spacing: -0.03em;
@@ -254,18 +357,11 @@ input {
 
 .hero-subheading {
   /* tagline under the h1 */
-  margin: 0 0 12px;
   max-width: var(--measure);
+  margin: 0 0 var(--space-md);
   font-size: var(--font-size-base);
   line-height: var(--line-height-body);
   color: var(--color-on-navy-muted);
-}
-
-.welcome-actions {
-  /* stacks the two buttons */
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .welcome-page .btn-secondary {
@@ -284,7 +380,8 @@ input {
 }
 
 .welcome-page footer p {
-  margin: 24px 0 0;
+  margin-top: var(--space-lg);
+  margin-inline: auto;
   font-size: var(--font-size-sm);
   text-align: center;
   color: var(--color-on-navy-muted);
@@ -293,6 +390,7 @@ input {
 /* ---------- Home: trip planner + features ---------- */
 #trip-planner {
   /* plan a trip box on home */
+  padding: var(--space-md);
   background-color: var(--color-surface);
 }
 
@@ -308,23 +406,30 @@ input {
 
 .feature-card {
   /* feature boxes on home */
+  padding: var(--space-md);
+  margin: 0 0 var(--space-md);
   background-color: var(--color-surface);
 }
 
 /* ---------- Rides + trips ---------- */
 .ride-option {
   /* subway, bus, uber, walk */
+  padding: var(--space-sm);
+  margin: 0 0 var(--space-sm);
   border: 1px solid var(--color-border);
 }
 
 .trip-summary {
   /* trip info box on review page */
+  padding: var(--space-md);
   background-color: var(--color-surface);
 }
 
 /* ---------- Events ---------- */
 .event-card {
   /* each event */
+  padding: var(--space-md);
+  margin: 0 0 var(--space-md);
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
 }
@@ -350,12 +455,14 @@ input {
   max-width: 400px;
   height: auto;
   border-radius: 8px;
-  margin-top: 8px;
+  margin-top: var(--space-xs);
 }
 
 /* ---------- Venues (bars near you) ---------- */
 .venue-card {
   /* each bar / venue */
+  padding: var(--space-md);
+  margin: 0 0 var(--space-md);
   border: 1px solid var(--color-border);
 }
 
@@ -364,14 +471,14 @@ input {
   /* friends table */
   width: 100%;
   border-collapse: collapse;
-  margin-top: 16px;
+  margin-top: var(--space-sm);
 }
 
 .friends-table th,
 .friends-table td {
   /* table cells */
   border: 1px solid var(--color-border);
-  padding: 8px;
+  padding: var(--space-xs);
   text-align: left;
 }
 
@@ -388,10 +495,14 @@ input {
 /* ---------- Settings + account ---------- */
 .settings-section {
   /* account / payment / memberships boxes */
+  padding: var(--space-md);
+  margin: 0 0 var(--space-md);
   background-color: var(--color-surface);
 }
 
 .plan-card {
   /* each subscription plan */
+  padding: var(--space-md);
+  margin: 0 0 var(--space-md);
   border: 1px solid var(--color-border);
 }
