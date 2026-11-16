@@ -4,33 +4,61 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Transit App | Account</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
-  <body>
-    <header>
-      <p>Transit App</p>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="friends.html">Friends</a>
-        <a href="settings.html" class="current">Settings</a>
-      </nav>
-    </header>
-
+  <body class="account-page">
     <main>
       <h1>Account</h1>
 
-      <form class="settings-section">
-        <!-- name -->
-        <!-- email -->
-        <!-- phone -->
-        <!-- save button -->
-      </form>
+      <section class="profile-card">
+        <span class="avatar" aria-hidden="true">K</span>
+        <h2 class="profile-name">Kareem Ahmed</h2>
+        <p class="profile-email">kareem.ahmed@example.com</p>
+        <span class="plan-badge">Base plan</span>
+      </section>
 
-      <!-- sign out link -->
+      <section class="settings-section">
+        <h2>Account</h2>
+        <ul class="settings-list">
+          <li><a href="#">Account details</a></li>
+          <li><a href="#">Payment methods</a></li>
+          <li><a href="#">Subscription</a></li>
+        </ul>
+      </section>
+
+      <section class="settings-section">
+        <h2>Preferences</h2>
+        <ul class="settings-list">
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Privacy & location sharing</a></li>
+        </ul>
+      </section>
+
+      <a href="welcome.html" class="btn btn-danger">Sign out</a>
     </main>
+    <nav class="tab-bar" aria-label="Main">
+      <a href="index.html">
+        <span class="material-icons" aria-hidden="true">home</span>
+        Home
+      </a>
+      <a href="events.html">
+        <span class="material-icons" aria-hidden="true">event</span>
+        Events
+      </a>
+      <a href="friends.html">
+        <span class="material-icons" aria-hidden="true">group</span>
+        Friends
+      </a>
+      <a href="account.html" aria-current="page">
+        <span class="material-icons" aria-hidden="true">person</span>
+        Account
+      </a>
+    </nav>
 
     <footer>
       <p>Transit App</p>

@@ -4,65 +4,117 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Transit App | Home</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
-  <body>
-    <header>
-      <p>Transit App</p>
-
-      <nav>
-        <a href="index.html" class="current">Home</a>
-        <a href="events.html">Events</a>
-        <a href="friends.html">Friends</a>
-        <a href="settings.html">Settings</a>
-      </nav>
-    </header>
-
+  <body class="has-tab-bar">
     <main>
-      <h1>Where do you want to go?</h1>
+      <header class="home-header">
+        <p class="home-greeting">Good Evening</p>
+        <h1>Where to tonight?</h1>
+      </header>
 
-      <section id="trip-planner">
-        <h2>Plan a Trip</h2>
+      <form class="search-bar" action="where-to.html">
+        <label for="destination" class="visually-hidden">Destination</label>
+        <span class="material-icons" aria-hidden="true"> search</span>
+        <input
+          type="search"
+          id="destination"
+          name="destination"
+          placeholder="Search destination"
+        />
+      </form>
 
-        <p>Find the best way to get where you need to go.</p>
+      <ul class="shortcut-list" aria-label="Saved places">
+        <li>
+          <a href="where-to.html" class="chip"
+            >Home <span class="material-icons" aria-hidden="true">home</span></a
+          >
+        </li>
+        <li>
+          <a href="where-to.html" class="chip"
+            >Work <span class="material-icons" aria-hidden="true">work</span></a
+          >
+        </li>
+        <li>
+          <a href="where-to.html" class="chip"
+            >Favorites
+            <span class="material-icons" aria-hidden="true">favorite</span></a
+          >
+        </li>
+      </ul>
 
-        <form>
-          <label for="destination">Destination</label>
-          <input
-            type="text"
-            id="destination"
-            name="destination"
-            placeholder="Enter a destination"
-          />
-        </form>
-
-        <!-- goes to the trip flow -->
-        <a href="where-to.html">Plan a trip</a>
+      <section class="home-section">
+        <h2>Friends out now</h2>
+        <ul class="friend-list">
+          <li class="friend-card">
+            <span class="avatar avatar-sm avatar-purple" aria-hidden="true"
+              >E</span
+            >
+            <p class="friend-name">Ev</p>
+            <p class="friend-status">On subway</p>
+          </li>
+          <li class="friend-card">
+            <span class="avatar avatar-sm avatar-orange" aria-hidden="true"
+              >L</span
+            >
+            <p class="friend-name">Liv</p>
+            <p class="friend-status">In Uber</p>
+          </li>
+          <li class="friend-card">
+            <span class="avatar avatar-sm avatar-cyan" aria-hidden="true"
+              >K</span
+            >
+            <p class="friend-name">Keira</p>
+            <p class="friend-status">At a bar</p>
+          </li>
+          <li class="friend-card friend-card-add">
+            <a href="friends.html">
+              <span
+                class="avatar avatar-sm avatar-add material-icons"
+                aria-hidden="true"
+                >add</span
+              >
+              <p class="friend-name">Add</p>
+              <p class="friend-status">Invite</p>
+            </a>
+          </li>
+        </ul>
       </section>
 
-      <section class="feature-card">
-        <h2>Transportation Options</h2>
-
-        <p>
-          Compare public transit, rideshare, walking, and other transportation
-          options.
-        </p>
-      </section>
-
-      <section class="feature-card">
-        <h2>Nearby Events</h2>
-
-        <p>Find events happening near you and plan a trip there.</p>
-      </section>
-
-      <section class="feature-card">
-        <h2>Friends</h2>
-
-        <p>Make plans with friends and meet up at your destination.</p>
+      <section class="home-section">
+        <h2>Events happening tonight</h2>
+        <article class="event-card event-highlight">
+          <h3>Bar Meetup</h3>
+          <p>Today, 5:30pm | McGillins</p>
+          <p>3 friends going</p>
+          <a href="events.html" class="btn btn-primary">Join</a>
+        </article>
       </section>
     </main>
 
+    <nav class="tab-bar" aria-label="Main">
+      <a href="index.html" aria-current="page">
+        <span class="material-icons" aria-hidden="true">home</span>
+        Home
+      </a>
+      <a href="events.html">
+        <span class="material-icons" aria-hidden="true">event</span>
+        Events
+      </a>
+      <a href="friends.html">
+        <span class="material-icons" aria-hidden="true">group</span>
+        Friends
+      </a>
+      <a href="account.html">
+        <span class="material-icons" aria-hidden="true">person</span>
+        Account
+      </a>
+    </nav>
     <footer>
       <p>Transit App</p>
     </footer>

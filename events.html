@@ -4,21 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Transit App | Events</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
   <body>
-    <header>
-      <p>Transit App</p>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="events.html" class="current">Events</a>
-        <a href="friends.html">Friends</a>
-        <a href="settings.html">Settings</a>
-      </nav>
-    </header>
-
     <main>
       <h1>Events Near You</h1>
 
@@ -63,6 +56,24 @@
         </article>
       </section>
     </main>
+    <nav class="tab-bar" aria-label="Main">
+      <a href="index.html">
+        <span class="material-icons" aria-hidden="true">home</span>
+        Home
+      </a>
+      <a href="events.html" aria-current="page">
+        <span class="material-icons" aria-hidden="true">event</span>
+        Events
+      </a>
+      <a href="friends.html">
+        <span class="material-icons" aria-hidden="true">group</span>
+        Friends
+      </a>
+      <a href="account.html">
+        <span class="material-icons" aria-hidden="true">person</span>
+        Account
+      </a>
+    </nav>
 
     <footer>
       <p>Transit App</p>
