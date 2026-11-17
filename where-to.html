@@ -3,43 +3,82 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Transit App | Where To?</title>
+    <title>Transit App | Where to?</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
-  <body>
-    <header>
-      <p>Transit App</p>
+  <body class="where-page has-fixed-button">
+    <div class="map-header">
+      <img
+        src="images/map.jpg"
+        alt="Map of the route from Drexel to McGillin's"
+        class="map-img"
+      />
+      <a
+        href="index.html"
+        class="icon-button map-back"
+        aria-label="Back to home"
+      >
+        <span class="material-icons" aria-hidden="true">arrow_back</span>
+      </a>
+    </div>
 
-      <nav>
-        <a href="index.html" class="current">Home</a>
-        <a href="events.html">Events</a>
-        <a href="friends.html">Friends</a>
-        <a href="account.html">Account</a>
-      </nav>
-    </header>
-
-    <main>
+    <main class="sheet">
       <h1>Where to?</h1>
 
-      <form>
-        <!-- from input -->
-        <!-- to input -->
+      <form class="trip-form" action="rides.html">
+        <label for="from">From</label>
+        <input type="text" id="from" name="from" value="Current location" />
+        <label for="to">To</label>
+        <input type="text" id="to" name="to" placeholder="Enter destination" />
+        <ul class="shortcut-list" aria-label="Saved places">
+          <li>
+            <a href="rides.html" class="chip"
+              >Home
+              <span class="material-icons" aria-hidden="true">home</span></a
+            >
+          </li>
+          <li>
+            <a href="rides.html" class="chip"
+              >Work
+              <span class="material-icons" aria-hidden="true">work</span></a
+            >
+          </li>
+          <li>
+            <a href="rides.html" class="chip"
+              >Favorites
+              <span class="material-icons" aria-hidden="true">favorite</span></a
+            >
+          </li>
+        </ul>
+        <h2>Recent</h2>
+        <ul class="settings-list recent-list">
+          <li>
+            <a href="rides.html">
+              <span class="material-icons recent-icon" aria-hidden="true"
+                >schedule</span
+              >
+              <span class="recent-name">McGillin's</span>
+              <span class="recent-detail">Bar · 1.1 mi</span>
+            </a>
+          </li>
+          <li>
+            <a href="rides.html">
+              <span class="material-icons recent-icon" aria-hidden="true"
+                >schedule</span
+              >
+              <span class="recent-name">Madis</span>
+              <span class="recent-detail">Restaurant · 2.3 mi</span>
+            </a>
+          </li>
+        </ul>
+
+        <button type="submit" class="btn btn-primary">Find a ride</button>
       </form>
-
-      <section>
-        <h2>Recent places</h2>
-        <!-- a few recent spots, each links to rides page -->
-      </section>
-
-      <section>
-        <h2>Saved places</h2>
-        <!-- home, work, school -->
-      </section>
     </main>
-
-    <footer>
-      <p>Transit App</p>
-    </footer>
   </body>
 </html>

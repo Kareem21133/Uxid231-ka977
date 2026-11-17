@@ -4,12 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Transit App | Sign up</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
 
   <body class="auth-page">
     <main>
-      <a href="welcome.html" class="back-link">← Back</a>
+      <a href="welcome.html" class="icon-button" aria-label="Back to welcome">
+        <span class="material-icons" aria-hidden="true">arrow_back</span>
+      </a>
 
       <h1>Create your account</h1>
       <p class="auth-intro">It takes less than a minute.</p>
@@ -28,6 +34,7 @@
           id="password"
           name="password"
           autocomplete="new-password"
+          aria-describedby="password-hint"
         />
 
         <label for="birthday">Date of birth</label>

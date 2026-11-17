@@ -253,6 +253,11 @@ input {
   text-decoration: none;
 }
 
+.auth-page .icon-button {
+  /* space under the round back button */
+  margin: 0 0 var(--space-lg);
+}
+
 .auth-page h1 {
   margin: 0 0 var(--space-xs);
 }
@@ -263,14 +268,16 @@ input {
   color: var(--color-muted-text);
 }
 
-.auth-form label {
+.auth-form label,
+.trip-form label {
   /* label above each input */
   display: block;
   margin: 0 0 var(--space-xs);
   font-weight: var(--font-weight-bold);
 }
 
-.auth-form input {
+.auth-form input,
+.trip-form input {
   /* full-width text box; muted border = 3:1+ contrast so it's visible */
   display: block;
   width: 100%;
@@ -304,7 +311,8 @@ input {
   font-weight: var(--font-weight-bold);
 }
 
-.auth-form .btn {
+.auth-form .btn,
+.trip-form .btn {
   /* real button needs these to match the link-buttons */
   width: 100%;
   border: none;
@@ -805,6 +813,125 @@ input {
 #destination:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+/* ---------- Where to ---------- */
+.map-header {
+  position: relative;
+}
+
+.map-img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* AI helped me here */
+}
+
+.icon-button {
+  /* round white button with an icon (look only, no position) */
+  /* AI helped me with this block */
+  display: inline-block;
+  width: 44px; /* 44px = comfortable finger tap size */
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+  line-height: 44px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.icon-button .material-icons {
+  /* Google's line-height: 1 would push the icon to the top */
+  line-height: 44px;
+}
+
+.map-back {
+  /* only on Where to: float on top of the map (like the search icon) */
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+}
+
+.sheet {
+  position: relative; /* AI helped me here */
+  margin: -1.5rem auto 0; /* AI helped me here */
+  border-radius: 24px 24px 0 0; /* AI helped me here */
+  background-color: var(--color-background);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08); /* shadow goes up, onto the map */
+}
+
+#from {
+  /* "Current location" shows in blue */
+  color: var(--color-brand);
+  font-weight: var(--font-weight-bold);
+}
+
+.sheet h2 {
+  margin: var(--space-md) 0 var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-text);
+}
+
+.trip-form .btn {
+  /* pinned to the bottom so it's always visible */
+  position: fixed;
+  left: var(--space-md);
+  right: var(--space-md);
+  bottom: var(--space-md);
+  width: auto;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.has-fixed-button {
+  /* room at the bottom so the last row isn't hidden under the button */
+  padding-bottom: 6rem;
+}
+
+.trip-form input {
+  /* From and To sit closer together than on Sign In */
+  margin: 0 0 var(--space-xs);
+}
+
+.trip-form .shortcut-list {
+  /* more room between the To box and the chips */
+  margin-top: var(--space-sm);
+}
+
+.recent-list a {
+  /* anchor for the clock + room on the left for it */
+  position: relative;
+  padding-left: 3.5rem;
+}
+
+.recent-icon {
+  /* gray circle with the clock*/
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-muted-text);
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.recent-name {
+  display: block;
+}
+
+.recent-detail {
+  /* small gray caption */
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-muted-text);
 }
 
 /* ---------- Bottom tab bar ---------- */
